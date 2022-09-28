@@ -76,8 +76,3 @@ def tas_kagit_makas(kullaniciAdi):
 
 kullaniciAdi = input("Taş-kağıt-makas oyununu oynamak için kullanıcı adınızı giriniz: ")
 tas_kagit_makas(kullaniciAdi)
-
-
-oyuncununCevabi = input("Cevabınızı giriniz: ")
-oyuncununCevabi = oyuncununCevabi.lower
-oyununOlasiliklari = ["taş", "kağıt", "makas"]
