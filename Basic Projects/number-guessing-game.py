@@ -15,7 +15,13 @@ def sayiTahminOyunu(kullaniciAdi, istenenHak):
         alınanPuan = round(alınanPuan, 2)
         kalanHak = istenenHak - kullanılanHak
 
-        girilenTahmin = int(input(f"{kullaniciAdi}, tahmin ettiğin sayıyı gir: "))
+        try:
+            girilenTahmin = int(input(f"{kullaniciAdi}, tahmin ettiğin sayıyı gir: "))
+        except ValueError:
+            girilenTahmin = int(input(f"{kullaniciAdi}, hatalı tahmin, sayı girmelisiniz: "))
+            
+        if (girilenTahmin < 0) or (girilenTahmin > 100):
+            girilenTahmin = int(input(f"{girilenTahmin} hatalı bir tahmin. 0-100 arasında bir sayı giriniz: "))
 
         if (girilenTahmin == bulunacakSayi):
             print(f"Tebrikler {kullaniciAdi}, bulunacak sayı {bulunacakSayi}'idi. Aldığınız Puan: {alınanPuan}")
