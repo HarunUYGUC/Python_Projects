@@ -19,8 +19,8 @@ def sayiTahminOyunu(kullaniciAdi, istenenHak):
             girilenTahmin = int(input(f"{kullaniciAdi}, tahmin ettiğin sayıyı gir: "))
         except ValueError:
             girilenTahmin = int(input(f"{kullaniciAdi}, hatalı tahmin, sayı girmelisiniz: "))
-            
-        if (girilenTahmin < 0) or (girilenTahmin > 100):
+                      
+        while (girilenTahmin not in range(0, 101)):
             girilenTahmin = int(input(f"{girilenTahmin} hatalı bir tahmin. 0-100 arasında bir sayı giriniz: "))
 
         if (girilenTahmin == bulunacakSayi):
@@ -34,7 +34,7 @@ def sayiTahminOyunu(kullaniciAdi, istenenHak):
         kullanılanHak += 1
 
     if (kalanHak == 0):
-        print(f"{kullaniciAdi}, hakların bitti! Aldığın Puan: 0")
+        print(f"{kullaniciAdi}, hakların bitti! Aldığın Puan: 0 / Bulunacak sayı {bulunacakSayi}'idi.")
 
     tamamMiDevamMi = input(f"{kullaniciAdi}, oyuna devam etmek istiyorsan 'devam', istemiyorsan 'çık' yaz.")
 
