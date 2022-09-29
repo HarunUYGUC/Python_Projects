@@ -8,15 +8,17 @@ def hesap_makinesi():
         islemTuru = input("Hatalı cevap! Toplama mı, çıkarma mı, çarpma mı, bölme mi yapmak istersiniz?: ")
         islemTuru = islemTuru.lower()
 
-    try:
-        sayi1 = float(input("1. Sayınızı Giriniz: "))
-        sayi2 = float(input("2. Sayınızı Giriniz: "))
-    except ValueError:
-        sayi1 = float(input("Hatalı giriş! Sayı girmelisiniz! 1. Sayıyı Giriniz: "))
-        sayi2 = float(input("Hatalı giriş! Sayı girmelisiniz! 2. Sayıyı Giriniz: "))
-    except Exception as e:
-        print("Bilinmeyen bir hata oluştu!")
-        print(e)
+    while True:
+        try:
+            sayi1 = float(input("1. Sayınızı Giriniz: "))
+            sayi2 = float(input("2. Sayınızı Giriniz: "))
+        except ValueError:
+            print("Yanlış bir değer girdiniz! Sayı girmelisiniz!")
+        except Exception as e:
+            print("Bilinmeyen bir hata oluştu!")
+            print(e)
+        else:
+            break
 
     if (islemTuru == "toplama"):
         sonuc = sayi1 + sayi2
