@@ -1,8 +1,18 @@
 import random
 
-def sayiTahminOyunu(kullaniciAdi, istenenHak):
+def sayiTahminOyunu(kullaniciAdi):
     oyunTanitimi = "0-100 arasındaki sayıyı bulma oyunu başladı!"
     print(oyunTanitimi)
+
+    while True:
+        try:
+            istenenHak = int(input(f"{kullaniciAdi}, oyunu kaç hak ile oynamak istersin?: "))
+        except ValueError:
+            print(f"{kullaniciAdi}, hatalı bir değer! Sayı girmelisin.!")
+        except Exception:
+            print("Bİlinmeyen bir hata oluştu!")
+        else:
+            break
 
     bulunacakSayi = random.randint(0, 100)
     birDenemeKacPuan = 100 / istenenHak
@@ -15,11 +25,16 @@ def sayiTahminOyunu(kullaniciAdi, istenenHak):
         alınanPuan = round(alınanPuan, 2)
         kalanHak = istenenHak - kullanılanHak
 
-        try:
-            girilenTahmin = int(input(f"{kullaniciAdi}, tahmin ettiğin sayıyı gir: "))
-        except ValueError:
-            girilenTahmin = int(input(f"{kullaniciAdi}, hatalı tahmin, sayı girmelisiniz: "))
-                      
+        while True:
+            try:
+                girilenTahmin = int(input(f"{kullaniciAdi}, tahmin ettiğin sayıyı gir: "))
+            except ValueError:
+                print(f"{kullaniciAdi}, hatalı bir değer! Sayı girmelisin!")
+            except Exception:
+                print("Bilinmeyen bir hata oluştu!")
+            else:
+                break
+                    
         while (girilenTahmin not in range(0, 101)):
             girilenTahmin = int(input(f"{girilenTahmin} hatalı bir tahmin. 0-100 arasında bir sayı giriniz: "))
 
@@ -42,10 +57,9 @@ def sayiTahminOyunu(kullaniciAdi, istenenHak):
         print(f"{kullaniciAdi}, oyun baştan başladı.")
         istenenHak = int(input(f"{kullaniciAdi}, bu sefer kaç hak ile oynamak istersin?: "))
         sayiTahminOyunu(kullaniciAdi, istenenHak)
-    elif (tamamMiDevamMi.lower() == "çık"):
+    else:
         print(f"{kullaniciAdi}, oyun kapatıldı.")
 
 
 kullaniciAdi = input("0-100 arası Sayı Tahmin oyununu oynamak için kullanıcı adınızı giriniz: ")
-istenenHak = int(input(f"{kullaniciAdi}, oyunu kaç hak ile oynamak istersin?: "))
-sayiTahminOyunu(kullaniciAdi, istenenHak)
+sayiTahminOyunu(kullaniciAdi)
