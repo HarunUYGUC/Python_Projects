@@ -70,7 +70,7 @@ def tas_kagit_makas(kullaniciAdi):
     if (tamamMiDevamMi.lower() == "devam"):
         print(f"{kullaniciAdi}, oyun baştan başladı.")
         tas_kagit_makas(kullaniciAdi)
-    elif (tamamMiDevamMi.lower() == "çık"):
+    else:
         print(f"{kullaniciAdi}, oyun kapatıldı.")
 
 
