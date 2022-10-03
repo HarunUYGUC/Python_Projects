@@ -10,16 +10,16 @@ def yazma_hizi_hesaplayici():
         print(metin)
         
         baslangicAni = datetime.datetime.now()
-        baslangicAninSaati = datetime.datetime.strftime(baslangicAni, "%X")
-        print(baslangicAninSaati)
+        baslangicSaati = datetime.datetime.strftime(baslangicAni, "%X")
+        print(baslangicSaati)
 
         girilenMetin = input("Metni girmeye başla: ")
-        girilenMetininKelimeListesi = girilenMetin.split()
+        girilenMetninKelimeListesi = girilenMetin.split()
 
         dogruGirilenKelimeSayisi = 0
         i = 0
         while (i < 99):
-            if (metninKelimeListesi[i] == girilenMetininKelimeListesi[i]):
+            if (metninKelimeListesi[i] == girilenMetninKelimeListesi[i]):
                 dogruGirilenKelimeSayisi += 1
             else:
                 pass
@@ -27,9 +27,10 @@ def yazma_hizi_hesaplayici():
         bitisAni = datetime.datetime.now()
         bitisSaati = datetime.datetime.strftime(bitisAni, "%X")
 
-        gecenSure = bitisSaati - baslangicAninSaati
+        gecenSure = bitisSaati - baslangicSaati
         print(f"Geçen Süre: {gecenSure} \nDoğru Yazılan Kelime: {dogruGirilenKelimeSayisi}")
-        
+        print("*" * 10)
+
         wps = dogruGirilenKelimeSayisi / gecenSure # word per second (saniyedeki kelime sayısı)
         print(f"WPS (Saniyedeki Kelime Sayısı) = {wps}")
         
