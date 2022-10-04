@@ -3,6 +3,7 @@ import datetime
 def yazma_hizi_hesaplayici():
     print("- AÇIKLAMA: Aşağıdaki metni gördüğün anda yazmaya başlamalısın, bitince de 'Enter a' basmalısın. \n- 100 kelimelik olan bu metni kaç saniyede ve ne kadar doğru yazdığın önemlidir.")
     metniGor = input("Metni görmek için 'Evet' yazmalısın: ")
+    print("*" * 10)
     
     if (metniGor.lower() == "evet"):
         metin = "Şehrin en işlek caddesinde, yarım asırlık bir pasajın en alt katında, babadan kalma küçük bir çay ocağı işletiyordu. Müşterileri genellikle cadde üzerinde bulunan dershanenin öğrencileri veya pasajdaki diğer esnaflar oluyordu. Sabah sekiz, akşam altı derken günü tatlı bir yorgunlukla bitirip, ardından evinin yolunu tutuyordu. Evde onu sabırsızlıkla bekleyen biri beş, diğeri sekiz yaşında olan iki oğlu vardı. Ne var ki dedelerini hiç görmediklerinden ara sıra kendi oğullarına, babasını anlatıyordu. Bir sabah caddenin başında, bir fotoğraf sergisinin kurulduğunu gördü. O gün sırf merakından o sergiyi gezmek istedi. Çocuklarına hiçbir zaman gösteremediği dedelerinin, çay ocağının önünde çekilmiş siyah beyaz bir fotoğrafı duruyordu."
@@ -10,32 +11,33 @@ def yazma_hizi_hesaplayici():
         print(metin)
         
         baslangicAni = datetime.datetime.now()
-        baslangicSaati = datetime.datetime.strftime(baslangicAni, "%X")
-        print(baslangicSaati)
-
         girilenMetin = input("Metni girmeye başla: ")
+        bitisAni = datetime.datetime.now()
         girilenMetninKelimeListesi = girilenMetin.split()
+        print("*" * 10)
 
         dogruGirilenKelimeSayisi = 0
         i = 0
-        while (i < 99):
+        while (i < len(girilenMetninKelimeListesi)):
             if (metninKelimeListesi[i] == girilenMetninKelimeListesi[i]):
                 dogruGirilenKelimeSayisi += 1
+                i += 1
             else:
-                pass
+                i += 1
         
-        bitisAni = datetime.datetime.now()
-        bitisSaati = datetime.datetime.strftime(bitisAni, "%X")
+        gecenSure = (bitisAni - baslangicAni).total_seconds()
 
-        gecenSure = bitisSaati - baslangicSaati
-        print(f"Geçen Süre: {gecenSure} \nDoğru Yazılan Kelime: {dogruGirilenKelimeSayisi}")
-        print("*" * 10)
+        print(f"Geçen Süre: {gecenSure} \nYazılan Kelime: {len(girilenMetninKelimeListesi)} \nDoğru Yazılan Kelime: {dogruGirilenKelimeSayisi}")
+        print("-" * 10)
 
-        wps = dogruGirilenKelimeSayisi / gecenSure # word per second (saniyedeki kelime sayısı)
-        print(f"WPS (Saniyedeki Kelime Sayısı) = {wps}")
+        wps1 = dogruGirilenKelimeSayisi / gecenSure # word per second (saniyedeki kelime sayısı)
+        print(f"WPS (Saniyedeki Doğru Kelime Sayısı) = {round(wps1, 2)}")
         
-        dogruluk = 100 - dogruGirilenKelimeSayisi
-        print(f"%{dogruluk} Doğruluk")
+        wps2 = len(girilenMetninKelimeListesi) / gecenSure # word per second (saniyedeki kelime sayısı)
+        print(f"WPS (Saniyedeki Yazılan Kelime Sayısı) = {round(wps2, 2)}")
+
+        dogruluk = dogruGirilenKelimeSayisi / len(girilenMetninKelimeListesi) * 100
+        print(f"% {round(dogruluk, 2)} Doğruluk")
     else:
         print("Uygulama kapatıdı!")
 
