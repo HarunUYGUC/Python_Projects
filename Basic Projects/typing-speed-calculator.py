@@ -16,28 +16,41 @@ def yazma_hizi_hesaplayici():
         girilenMetninKelimeListesi = girilenMetin.split()
         print("*" * 10)
 
+        bayrak = "HATA YOK"
         dogruGirilenKelimeSayisi = 0
         i = 0
         while (i < len(girilenMetninKelimeListesi)):
-            if (metninKelimeListesi[i] == girilenMetninKelimeListesi[i]):
-                dogruGirilenKelimeSayisi += 1
-                i += 1
-            else:
-                i += 1
+            try:
+                if (metninKelimeListesi[i] == girilenMetninKelimeListesi[i]):
+                    dogruGirilenKelimeSayisi += 1
+                    i += 1
+                else:
+                    i += 1
+            except IndexError:
+                print("Hatalı giriş! Metindekinden fazla kelime girdiniz.")
+                bayrak = "HATA"
+                break
+            except Exception:
+                print("Bilinmeyen bir hata!")
+                bayrak = "HATA"
+                break
         
-        gecenSure = (bitisAni - baslangicAni).total_seconds()
+        if (bayrak == "HATA YOK"):
+            gecenSure = (bitisAni - baslangicAni).total_seconds()
 
-        print(f"Geçen Süre: {gecenSure} \nYazılan Kelime: {len(girilenMetninKelimeListesi)} \nDoğru Yazılan Kelime: {dogruGirilenKelimeSayisi}")
-        print("-" * 10)
+            print(f"Geçen Süre: {gecenSure} \nYazılan Kelime: {len(girilenMetninKelimeListesi)} \nDoğru Yazılan Kelime: {dogruGirilenKelimeSayisi}")
+            print("-" * 10)
 
-        wps1 = dogruGirilenKelimeSayisi / gecenSure # word per second (saniyedeki kelime sayısı)
-        print(f"WPS (Saniyedeki Doğru Kelime Sayısı) = {round(wps1, 2)}")
+            wps1 = dogruGirilenKelimeSayisi / gecenSure # word per second (saniyedeki kelime sayısı)
+            print(f"WPS (Saniyedeki Doğru Kelime Sayısı) = {round(wps1, 2)}")
         
-        wps2 = len(girilenMetninKelimeListesi) / gecenSure # word per second (saniyedeki kelime sayısı)
-        print(f"WPS (Saniyedeki Yazılan Kelime Sayısı) = {round(wps2, 2)}")
+            wps2 = len(girilenMetninKelimeListesi) / gecenSure # word per second (saniyedeki kelime sayısı)
+            print(f"WPS (Saniyedeki Yazılan Kelime Sayısı) = {round(wps2, 2)}")
 
-        dogruluk = dogruGirilenKelimeSayisi / len(girilenMetninKelimeListesi) * 100
-        print(f"% {round(dogruluk, 2)} Doğruluk")
+            dogruluk = dogruGirilenKelimeSayisi / len(girilenMetninKelimeListesi) * 100
+            print(f"% {round(dogruluk, 2)} Doğruluk")
+        else:
+            print("Uygulama kapatıldı!")
     else:
         print("Uygulama kapatıdı!")
 
@@ -55,3 +68,12 @@ if (girecekMi.lower() == "evet"):
     yazma_hizi_hesaplayici()
 else:
     print("Uygulama kapatıldı")
+
+
+
+"""
+Önemli bulduğum ve yeni öğrendiğim kısa yollar. :D
+"""
+# Indent Line (Girinti oluşturmak): CTRL + Ü
+# Move Line Up (Satırı yukarıya taşımak): ALT + UpArrow
+# Move Line Down (Satırı aşağıya taşımak): ALT + DownArrow
