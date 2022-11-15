@@ -23,6 +23,7 @@
 # Highlighting Characters (Karakterleri vurgulamak): SHIFT + RightArrow
 # Removing Highlighted Characters (Vurgulanan karakterleri kaldırmak): SHIFT + LeftArrow
 # Highlight Line By Line (Satır satır vurgulamak): CTRL + L
+# Kelime kelime vurgula => SHIFT + CTRL + RightArrow or LeftArrow
 
 # Move Word By Word (Kelime kelime ilerlemek): CTRL + RightArrow
 # Move Word By Word But In Reverse (Kelime kelime ilerlemek ama geriye doğru): CTRL + LeftArrow
@@ -30,6 +31,7 @@
 # Select Word and Replace (Kelime seç ve değiştir): CTLR + D (Birden fazla kez bu 
 # kombinasyonu kullanarak aynı kelimeyi diğer kod satırlarından da seçerek bir yerdeki 
 # değişiklik ile aynı anda hepsini değiştirebilirsin.)
+# Sağdan sola kelime kelime sil => CTRL + DELETE
 
 # Set Multiple Cursors (Birden çok imleç ayarlamak): ALT + CLICK (Birden fazla kez bu 
 # kombinasyonu kullanarak seçtiğin yerlere ilk tıkladığın yere yazdığın bilgiyi aynı anda
