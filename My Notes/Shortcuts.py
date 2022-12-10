@@ -36,3 +36,14 @@
 # Set Multiple Cursors (Birden çok imleç ayarlamak): ALT + CLICK (Birden fazla kez bu 
 # kombinasyonu kullanarak seçtiğin yerlere ilk tıkladığın yere yazdığın bilgiyi aynı anda
 # hepsine yazmaya yarar.)
+
+# Run Code (Kodu Çalıştır): CTRL + ALT + N 
+# Close / Open Explorer Window (Dosya Penceresini Aç / Kapa): CTRL + B 
+
+# One Time Capital Letter (Bir Kerelik Büyük Harf): SHIFT + Press Any Letter
+
+# Select and Replace All Words (Bir Kelimeyi Değiştirmek İstiyorsan Tek Bir Yerdeki O 
+# Kelimeye Tıkladıktan Sonra Her Yerdeki O Kelimeyi Değiştirebilirsin): CTRL + SHIFT + L
+# Select and Replace Desired Words (Bir Kelimeyi Değiştirmek İstiyorsan Tek Bir Yerdeki 
+# O Kelimeye Tıkladıktan Sonra Bu Kombinasyonu Tekrar Tekrar Kullanarak Diğer Yerlerden 
+# İstediklerini Seçip Değiştirebilirsin): CTRL + D
