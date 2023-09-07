@@ -1,7 +1,3 @@
-"""
-I tried it a few times and it works well enough for me.
-"""
-
 from pynput import keyboard
 
 def keystroke(key):
@@ -19,4 +15,3 @@ def keystroke(key):
 
 with keyboard.Listener(on_press=keystroke) as listener:
     listener.join()
-
