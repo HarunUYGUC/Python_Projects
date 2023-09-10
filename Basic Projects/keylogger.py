@@ -1,3 +1,7 @@
+"""
+I tried it a few times and it works well enough for me.
+"""
+
 from pynput import keyboard
 
 def keystroke(key):
